@@ -2,40 +2,43 @@ from util import text
 from util import codec
 
 
-def encrypt(s, n):
-    res = ""
+class Caesar:
+    def __init__(self, n):
+        self.n = n
 
-    for i in range(len(s)):
-        if text.is_letter(s[i]):
-            # convert letter to code
-            x = codec.to_number(s[i])
+    def encrypt(self, s):
+        res = ""
 
-            # process
-            x = (x + n) % 26
+        for i in range(len(s)):
+            if text.is_letter(s[i]):
+                # convert letter to code
+                x = codec.to_number(s[i])
 
-            # convert code to letter
-            res += codec.to_letter(x)
+                # process
+                x = (x + self.n) % 26
 
-        else:
-            res += s[i]
+                # convert code to letter
+                res += codec.to_letter(x)
 
-    return res
+            else:
+                res += s[i]
 
+        return res
 
-def decrypt(s, n):
-    res = ""
-    for i in range(len(s)):
-        if text.is_letter(s[i]):
-            # convert letter to code
-            x = codec.to_number(s[i])
+    def decrypt(self, s):
+        res = ""
+        for i in range(len(s)):
+            if text.is_letter(s[i]):
+                # convert letter to code
+                x = codec.to_number(s[i])
 
-            # process
-            x = (x - n) % 26
+                # process
+                x = (x - self.n) % 26
 
-            # convert code to letter
-            res += codec.to_letter(x)
+                # convert code to letter
+                res += codec.to_letter(x)
 
-        else:
-            res += s[i]
+            else:
+                res += s[i]
 
-    return res
+        return res
