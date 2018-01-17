@@ -2,7 +2,7 @@ from util import text
 from util import codec
 
 
-def encode(s, n):
+def encrypt(s, n):
     res = ""
     for i in range(len(s)):
         if text.is_letter(s[i]):
@@ -14,7 +14,7 @@ def encode(s, n):
     return res
 
 
-def decode(s, n):
+def decrypt(s, n):
     res = ""
     for i in range(len(s)):
         if text.is_letter(s[i]):
