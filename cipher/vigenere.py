@@ -24,7 +24,7 @@ class Vigenere:
                 res += codec.to_letter(x)
 
                 # update key_char_index
-                key_char_index += (key_char_index + 1) % len(self.keyword)
+                key_char_index = (key_char_index + 1) % len(self.keyword)
             else:
                 res += s[i]
         return res
@@ -47,7 +47,7 @@ class Vigenere:
                 res += codec.to_letter(x)
 
                 # update key_char_index
-                key_char_index += (key_char_index + 1) % len(self.keyword)
+                key_char_index = (key_char_index + 1) % len(self.keyword)
             else:
                 res += s[i]
         return res
