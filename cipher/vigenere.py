@@ -1,4 +1,5 @@
-import util
+from util import util
+
 
 class Vigenere:
     def __init__(self, keyword):
