@@ -1,6 +1,4 @@
-from util import text
-from util import codec
-
+import util
 
 class Vigenere:
     def __init__(self, keyword):
@@ -11,17 +9,17 @@ class Vigenere:
         key_char_index = 0
 
         for i in range(len(s)):
-            if text.is_letter(s[i]):
+            if util.is_letter(s[i]):
                 # convert letter to code
-                x = codec.to_number(s[i])
+                x = util.to_number(s[i])
 
                 # process
                 key_char = self.keyword[key_char_index]
-                k = codec.to_number(key_char)
+                k = util.to_number(key_char)
                 x = (x + k) % 26
 
                 # convert code to letter
-                res += codec.to_letter(x)
+                res += util.to_letter(x)
 
                 # update key_char_index
                 key_char_index = (key_char_index + 1) % len(self.keyword)
@@ -34,17 +32,17 @@ class Vigenere:
         key_char_index = 0
 
         for i in range(len(s)):
-            if text.is_letter(s[i]):
+            if util.is_letter(s[i]):
                 # convert letter to code
-                x = codec.to_number(s[i])
+                x = util.to_number(s[i])
 
                 # process
                 key_char = self.keyword[key_char_index]
-                k = codec.to_number(key_char)
+                k = util.to_number(key_char)
                 x = (x - k) % 26
 
                 # convert code to letter
-                res += codec.to_letter(x)
+                res += util.to_letter(x)
 
                 # update key_char_index
                 key_char_index = (key_char_index + 1) % len(self.keyword)

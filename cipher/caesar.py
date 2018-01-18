@@ -1,5 +1,4 @@
-from util import text
-from util import codec
+import util
 
 
 class Caesar:
@@ -10,15 +9,15 @@ class Caesar:
         res = ""
 
         for i in range(len(s)):
-            if text.is_letter(s[i]):
+            if util.is_letter(s[i]):
                 # convert letter to code
-                x = codec.to_number(s[i])
+                x = util.to_number(s[i])
 
                 # process
                 x = (x + self.n) % 26
 
                 # convert code to letter
-                res += codec.to_letter(x)
+                res += util.to_letter(x)
 
             else:
                 res += s[i]
@@ -28,15 +27,15 @@ class Caesar:
     def decrypt(self, s):
         res = ""
         for i in range(len(s)):
-            if text.is_letter(s[i]):
+            if util.is_letter(s[i]):
                 # convert letter to code
-                x = codec.to_number(s[i])
+                x = util.to_number(s[i])
 
                 # process
                 x = (x - self.n) % 26
 
                 # convert code to letter
-                res += codec.to_letter(x)
+                res += util.to_letter(x)
 
             else:
                 res += s[i]
